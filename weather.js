@@ -6,6 +6,7 @@ var history = $("#history");
 var city = $("#current").find($("#city"));
 var humidity = $("#current").find($("#humidity"));
 var speedW = $("#current").find($("#speed"));
+var tempature = $("#current").find($("#temp"));
 var uv = $("#current").find($("#uv"));
 var day1 = $(".day").find($("day_1"));
 var day2 = $(".day").find($("day_2"));
@@ -75,6 +76,7 @@ function Today() {
             $("#results").attr("style", "display:content");
             var name = info.name;
             var temp = info.main.temp;
+            var faren = ((temp - 273.15) * 1.80 +32);
             var lat = info.coord.lat;
             var lon =info.coord.lon;
             var hum = info.main.humidity;;
@@ -82,9 +84,10 @@ function Today() {
             var Uv = index(lat,lon);
             console.log(Uv)
             city.text(name);
-            humidity.text("Humidity = " + hum);
-            speedW.text("Wind Speed=" + speed);
+            humidity.text("Humidity = " + hum+ "%");
+            speedW.text("Wind Speed=" + speed+" MPH");
             uv.text("UV Index=" + Uv)
+            tempature.prepend("tempature="+parseInt(faren));
 
 
 
