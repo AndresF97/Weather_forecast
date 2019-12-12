@@ -56,6 +56,7 @@ function index(lat,lon){
 //current conditions function 
 function Today() {
     $("#search_bt").on("click", function (event) {
+        tempature.empty()
         event.preventDefault();
         $("#history").attr("style", "display:content");
         var input = $("#look").val();
@@ -82,13 +83,13 @@ function Today() {
             var hum = info.main.humidity;;
             var speed = info.wind.speed;
             var Uv = index(lat,lon);
-            console.log(Uv)
             city.text(name);
             humidity.text("Humidity = " + hum+ "%");
             speedW.text("Wind Speed=" + speed+" MPH");
             uv.text("UV Index=" + Uv)
-            tempature.prepend("tempature="+parseInt(faren));
-
+            tempature.prepend("Tempature ="+parseInt(faren));
+            tempature.append("&#845");
+            
 
 
         })
@@ -96,27 +97,27 @@ function Today() {
 }
 
 
-// // 5 day weather forecast
-// $("#search_bt").on("click", function (event) {
-//     event.preventDefault();
-//     var input = $("#look").val();
-//     var num = 3;
-//     $("#history").attr("style", "display:content");
-//     var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+input+"&cnt=5&appid=f315bcdf1cb4baa6f540676f13336a8c";
-//     $.ajax({
-//         url:jUrl,
-//         method:"GET",
-//     }).then(function(info){
-//         console.log(info)
-//         // list = (info.list);
-//         // var days=[day1,day2,day3,day4,day5];
-//         // for(var i =0; i < list.length; i++){
-//         //     console.log(list[i])
-//         //     if(i===5){
-//         //         break
-//         //     }
-//            // }
+// 5 day weather forecast
+$("#search_bt").on("click", function (event) {
+    event.preventDefault();
+    var input = $("#look").val();
+    var num = 3;
+    $("#history").attr("style", "display:content");
+    var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+input+"&appid=f315bcdf1cb4baa6f540676f13336a8c";
+    $.ajax({
+        url:jUrl,
+        method:"GET",
+    }).then(function(info){
+        console.log(info)
+        // list = (info.list);
+        // var days=[day1,day2,day3,day4,day5];
+        // for(var i =0; i < list.length; i++){
+        //     console.log(list[i])
+        //     if(i===5){
+        //         break
+        //     }
+           // }
         
-//     })
-// })
+    })
+})
 
