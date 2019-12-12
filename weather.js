@@ -1,7 +1,7 @@
 //URL webs
 
 //pointers for search
-var key="&appid=f315bcdf1cb4baa6f540676f13336a8c"
+var key="f315bcdf1cb4baa6f540676f13336a8c"
 var history = $("#history");
 var city = $("#current").find($("#city"));
 var humidity = $("#current").find($("#humidity"));
@@ -27,13 +27,23 @@ $("#results").attr("style", "display:none");
 $("#history").attr("style", "display:none");
 
 //getting the uv index function 
-function index(lat,lon,cnt){
-    var jurl= "http://api.openweathermap.org/data/2.5/uvi/forecast?appid="+key+"&lat="+lat+"&lon="+lon+"&cnt="+cnt;
+function index(lat,lon){
+    var jurl= "http://api.openweathermap.org/data/2.5/uvi/forecast?appid="+key+"&lat="+lat+"&lon="+lon;
     $.ajax({
         url:jurl,
         method:"GET"
     }).then(function(info){
-        return info.value
+        var num = info[0].value;
+        if(num  < 5){
+            uv.addClass("btn btn-success");
+        }
+        if (num ===7){
+            uv.addClass("btn btn-warning")
+        }
+        if(num > 7){
+            uv.addClass("btn btn-danger")
+        }
+        uv.text("UV index ="+num)
     })
 
 
@@ -56,7 +66,7 @@ function Today() {
 
 
 
-        var jUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + input + key;
+        var jUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + input +"&appid="+key;
         $.ajax({
             url: jUrl,
             method: "GET"
@@ -66,10 +76,11 @@ function Today() {
             var name = info.name;
             var temp = info.main.temp;
             var lat = info.coord.lat;
-            var lon =info.coord.lat
+            var lon =info.coord.lon;
             var hum = info.main.humidity;;
             var speed = info.wind.speed;
-            var Uv = index(lon,lat,1)
+            var Uv = index(lat,lon);
+            console.log(Uv)
             city.text(name);
             humidity.text("Humidity = " + hum);
             speedW.text("Wind Speed=" + speed);
