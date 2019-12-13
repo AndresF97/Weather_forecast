@@ -8,11 +8,11 @@ var humidity = $("#current").find($("#humidity"));
 var speedW = $("#current").find($("#speed"));
 var tempature = $("#current").find($("#temp"));
 var uv = $("#current").find($("#uv"));
-var day1 = $(".day").find($("day_1"));
-var day2 = $(".day").find($("day_2"));
-var day3 = $(".day").find($("day_3"));
-var day4 = $(".day").find($("day_4"));
-var day5 = $(".day").find($("day_5"));
+var day1 = $("#box_1").find($("#day_1"));
+var day2 = $("#box_2").find($("#day_2"));
+var day3 = $("#box_3").find($("#day_3"));
+var day4 = $("#box_4").find($("#day_4"));
+var day5 = $("#box_5").find($("#day_5"));
 
 
 
@@ -59,12 +59,17 @@ function Today() {
         tempature.empty()
         event.preventDefault();
         $("#history").attr("style", "display:content");
-        var input = $("#look").val();
-        var bt = $("<button>");
-        bt.text(input);
-        bt.addClass("list-group-item");
-        bt.addClass("list-group-item-action")
-        $("#history").append(bt)
+        var input = []
+        input.push($("#look").val());
+        for(var i =0; i < input.length; i++){
+            var bt = $("<button>");
+            bt.addClass("list-group-item");
+            bt.addClass("list-group-item-action");
+            bt.attr("data-city",input);
+            localStorage.setItem("data-city",JSON.stringify(input))
+            bt.text(input);
+            $("#history").append(bt)
+        }
 
 
 
@@ -75,7 +80,10 @@ function Today() {
         }).then(function (info) {
             console.log(info)
             $("#results").attr("style", "display:content");
+            var img =$("<img>");
+            //img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png")
             var name = info.name;
+            //name.append(img);
             var temp = info.main.temp;
             var faren = ((temp - 273.15) * 1.80 +32);
             var lat = info.coord.lat;
@@ -108,17 +116,30 @@ $("#search_bt").on("click", function (event) {
         method:"GET",
     }).then(function(info){
         console.log(info)
-        list = (info.list);
-        console.log(list[0].dt_txt);
-        counter=0
-        var days=[day1,day2,day3,day4,day5];
-        for(var i =0; i < list.length; i+=9){
-            while(counter <= 5 ){
-            var date= days[counter].find($("#date"));
-            date.text(list[i].dt_txt)
+        var list = (info.list);
+
+        // console.log(list[0].dt_txt);
+        // console.log(list[0].main.temp);
+        // console.log(list[0].main.humidity);
+        //var day =[day1,day2,day3,day4,day5];
+        var counter = 0;
+        // while(counter < day.length){
+         for(var i =0; i < list.length; i+=9){
+             for(var b= i; b > list.length -1; b-=1){
+                console.log(list[i])
+                day1.find($("#date_1")).text(list[b].dt_txt);
+            //  day2.find($("#date_2")).text(list[9].dt_txt);
+            //  day3.find($("#date_3")).text(list[10].dt_txt);
+            //  day4.find($("#date_4")).text(list[36].dt_txt);
+            //  day3.find($("#date_3")).text(list[37].dt_txt);
+             
+            // day[counter].find($("#temp")).text(list[i].main.temp);
+            // day[counter].find($("#humidity")).text(list[i].main.humidity);
+             }
             }
-            counter++
-           }
+        //     
+        //    counter++
+        
         
      })
 })
