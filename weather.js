@@ -123,20 +123,27 @@ $("#search_bt").on("click", function (event) {
         // console.log(list[0].main.humidity);
         //var day =[day1,day2,day3,day4,day5];
         var counter = 0;
+        var arr=[];
         // while(counter < day.length){
-         for(var i =0; i < list.length; i+=9){
-             for(var b= i; b > list.length -1; b-=1){
-                console.log(list[i])
-                day1.find($("#date_1")).text(list[b].dt_txt);
+         for(var i =0; i < list.length; i+=7){
+             //for(var b= i; b > list.length -1; b-=1){
+                 arr.push(list[i]);
+                //console.log(list[i])
+                //day1.find($("#date_1")).text(list[b].dt_txt);
             //  day2.find($("#date_2")).text(list[9].dt_txt);
             //  day3.find($("#date_3")).text(list[10].dt_txt);
-            //  day4.find($("#date_4")).text(list[36].dt_txt);
+            //  day3.find($("#date_3")).text(list[10].dt_txt);
             //  day3.find($("#date_3")).text(list[37].dt_txt);
              
             // day[counter].find($("#temp")).text(list[i].main.temp);
             // day[counter].find($("#humidity")).text(list[i].main.humidity);
              }
-            }
+             
+             day1.find($("#date_1")).text(arr[1].dt_txt);
+             day2.find($("#date_2")).text(arr[2].dt_txt);
+             day3.find($("#date_3")).text(arr[3].dt_txt);
+             day4.find($("#date_3")).text(arr[4].dt_txt);
+            //}
         //     
         //    counter++
         
