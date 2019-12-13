@@ -87,8 +87,8 @@ function Today() {
             humidity.text("Humidity = " + hum+ "%");
             speedW.text("Wind Speed=" + speed+" MPH");
             uv.text("UV Index=" + Uv)
-            tempature.prepend("Tempature ="+parseInt(faren));
-            tempature.append("&#845");
+            tempature.prepend("Tempature ="+parseInt(faren) + "&deg;" + "F");
+          
             
 
 
@@ -101,23 +101,25 @@ function Today() {
 $("#search_bt").on("click", function (event) {
     event.preventDefault();
     var input = $("#look").val();
-    var num = 3;
     $("#history").attr("style", "display:content");
-    var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+input+"&appid=f315bcdf1cb4baa6f540676f13336a8c";
+    var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+input+"&units=imperial"+"&appid="+key;
     $.ajax({
         url:jUrl,
         method:"GET",
     }).then(function(info){
         console.log(info)
-        // list = (info.list);
-        // var days=[day1,day2,day3,day4,day5];
-        // for(var i =0; i < list.length; i++){
-        //     console.log(list[i])
-        //     if(i===5){
-        //         break
-        //     }
-           // }
+        list = (info.list);
+        console.log(list[0].dt_txt);
+        counter=0
+        var days=[day1,day2,day3,day4,day5];
+        for(var i =0; i < list.length; i+=9){
+            while(counter <= 5 ){
+            var date= days[counter].find($("#date"));
+            date.text(list[i].dt_txt)
+            }
+            counter++
+           }
         
-    })
+     })
 })
 
