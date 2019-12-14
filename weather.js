@@ -38,6 +38,7 @@ $(document).ready(function () {
         }
         $(".list-group-item-action").on("click",function(){
             var location = ($(".list-group-item-action").attr("data-city"))
+            console.log(location)
             refresh(location);
         })
     }
@@ -189,7 +190,6 @@ function refresh(location){
         $("#results").attr("style", "display:content");
         tempature.empty()
         var img = $("<img>");
-        icon[b].empty();
         img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
