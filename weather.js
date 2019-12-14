@@ -111,7 +111,8 @@ function cityName(input){
         console.log(info)
         $("#results").attr("style", "display:content");
         tempature.empty()
-    //img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png")
+        var img = $("<img>")
+        img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
         var temp = info.main.temp;
@@ -122,7 +123,8 @@ function cityName(input){
         var speed = info.wind.speed;
         var Uv = index(lat,lon);
         city.text(name);
-        today.text("Today's date ="+date);
+        today.text(date);
+        city.append(img);
         humidity.text("Humidity = " + hum+ "%");
         speedW.text("Wind Speed=" + speed+" MPH");
         uv.text("UV Index=" + Uv)
@@ -181,7 +183,8 @@ function refresh(location){
         console.log(info)
         $("#results").attr("style", "display:content");
         tempature.empty()
-        //img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png")
+        var img = $("<img>")
+        img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
         var temp = info.main.temp;
@@ -191,8 +194,9 @@ function refresh(location){
         var hum = info.main.humidity;;
         var speed = info.wind.speed;
         var Uv = index(lat,lon);
-        today.text("Today's date ="+date);
+        today.text("Today's Date= "+date);
         city.text(name);
+        city.append(img)
         humidity.text("Humidity = " + hum+ "%");
         speedW.text("Wind Speed=" + speed+" MPH");
         uv.text("UV Index=" + Uv)
