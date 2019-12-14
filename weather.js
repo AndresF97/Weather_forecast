@@ -188,7 +188,8 @@ function refresh(location){
         console.log(info)
         $("#results").attr("style", "display:content");
         tempature.empty()
-        var img = $("<img>")
+        var img = $("<img>");
+        icon[b].empty();
         img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
@@ -231,12 +232,12 @@ $.ajax({
          for(var b= 0; b < 5; b++){
             tempature[b].empty()
             var img = $("<img>");
+            icon[b].empty();
             h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"));
             tempature[b].append(arr[counter].main.temp+ "&deg;" + "F");
             humidity[b].text(arr[counter].main.humidity+"%");
             img.attr("src","http://openweathermap.org/img/wn/"+arr[counter].weather[0].icon+"@2x.png");
             icon[b].append(img);
-
         
             counter++;
          }
