@@ -123,7 +123,7 @@ function cityName(input){
         var speed = info.wind.speed;
         var Uv = index(lat,lon);
         city.text(name);
-        today.text(date);
+        today.text("Today's date ="+date);
         city.append(img);
         humidity.text("Humidity = " + hum+ "%");
         speedW.text("Wind Speed=" + speed+" MPH");
@@ -147,22 +147,27 @@ $("#search_bt").on("click", function(event) {
         url:jUrl,
         method:"GET",
     }).then(function(info){
-        console.log(info)
         var list = (info.list);
         var counter = 0;
         var arr=[];
          for(var i =0; i < list.length; i+=7){
                  arr.push(list[i]);
              }
+             console.log(arr)
              var h1 = [day1.find($("#date_1")), day2.find($("#date_2")),day3.find($("#date_3")),day4.find($("#date_4")),day5.find($("#date_5"))];
              var tempature = [day1.find($("#temp_1")),day2.find($("#temp_2")),day3.find($("#temp_3")),day4.find($("#temp_4")),day5.find($("#temp_5"))];
              var humidity = [day1.find($("#humidity_1")),day2.find($("#humidity_2")),day3.find($("#humidity_3")),day4.find($("#humidity_4")),day5.find($("#humidity_5"))];
+             var icon = [day1.find($("#icon_1")),day2.find($("#icon_2")),day3.find($("#icon_3")),day4.find($("#icon_4")),day5.find($("#icon_5"))];
              var counter  = 1;
+
              for(var b= 0; b < 5; b++){
                 tempature[b].empty()
+                var img = $("<img>");
                 h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"))
                 tempature[b].append(arr[counter].main.temp+ "&deg;" + "F");
                 humidity[b].text(arr[counter].main.humidity+"%");
+                img.attr("src","http://openweathermap.org/img/wn/"+arr[counter].weather[0].icon+"@2x.png");
+                icon[b].append(img)
 
             
                 counter++;
@@ -221,12 +226,16 @@ $.ajax({
          var h1 = [day1.find($("#date_1")), day2.find($("#date_2")),day3.find($("#date_3")),day4.find($("#date_4")),day5.find($("#date_5"))];
          var tempature = [day1.find($("#temp_1")),day2.find($("#temp_2")),day3.find($("#temp_3")),day4.find($("#temp_4")),day5.find($("#temp_5"))];
          var humidity = [day1.find($("#humidity_1")),day2.find($("#humidity_2")),day3.find($("#humidity_3")),day4.find($("#humidity_4")),day5.find($("#humidity_5"))];
+         var icon = [day1.find($("#icon_1")),day2.find($("#icon_2")),day3.find($("#icon_3")),day4.find($("#icon_4")),day5.find($("#icon_5"))];
          var counter  = 1;
          for(var b= 0; b < 5; b++){
             tempature[b].empty()
+            var img = $("<img>");
             h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"));
             tempature[b].append(arr[counter].main.temp+ "&deg;" + "F");
             humidity[b].text(arr[counter].main.humidity+"%");
+            img.attr("src","http://openweathermap.org/img/wn/"+arr[counter].weather[0].icon+"@2x.png");
+            icon[b].append(img);
 
         
             counter++;
