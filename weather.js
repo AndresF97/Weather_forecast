@@ -54,7 +54,7 @@ $("#history").attr("style", "display:none");
 
 //getting the uv index function which will change the color of the UV index depending on the value
 function index(lat,lon){
-    var jurl= "http://api.openweathermap.org/data/2.5/uvi/forecast?appid="+key+"&lat="+lat+"&lon="+lon;
+    var jurl= "https://api.openweathermap.org/data/2.5/uvi/forecast?appid="+key+"&lat="+lat+"&lon="+lon;
     $.ajax({
         url:jurl,
         method:"GET"
@@ -113,7 +113,7 @@ function cityName(input){
         $("#results").attr("style", "display:content");
         tempature.empty()
         var img = $("<img>")
-        img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
+        img.attr("src","https://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
         var temp = info.main.temp;
@@ -191,7 +191,7 @@ function refresh(location){
         $("#results").attr("style", "display:content");
         tempature.empty()
         var img = $("<img>");
-        img.attr("src","http://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
+        img.attr("src","https://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
         var date = new Date(info.dt*1000);
         var name = info.name;
         var temp = info.main.temp;
@@ -238,7 +238,7 @@ $.ajax({
             h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"));
             tempature[b].append(arr[counter].main.temp+ "&deg;" + "F");
             humidity[b].text(arr[counter].main.humidity+"%");
-            img.attr("src","http://openweathermap.org/img/wn/"+arr[counter].weather[0].icon+"@2x.png");
+            img.attr("src","https://openweathermap.org/img/wn/"+arr[counter].weather[0].icon+"@2x.png");
             icon[b].append(img);
         
             counter++;
