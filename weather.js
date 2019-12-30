@@ -163,6 +163,7 @@ $("#search_bt").on("click", function(event) {
 
              for(var b= 0; b < 5; b++){
                 tempature[b].empty()
+                icon[b].empty();
                 var img = $("<img>");
                 h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"))
                 tempature[b].append(arr[counter].main.temp+ "&deg;" + "F");
@@ -231,6 +232,7 @@ $.ajax({
          var counter  = 1;
          for(var b= 0; b < 5; b++){
             tempature[b].empty()
+            icon[b].empty();
             var img = $("<img>");
             icon[b].empty();
             h1[b].text(new Date(arr[counter].dt_txt).toLocaleDateString("en-US"));
