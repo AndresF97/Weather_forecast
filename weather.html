@@ -15,15 +15,15 @@
         <h1 class="text-center mw-100 p-3 mb-2 bg-info text-white">Weather forecast</h1>
     <div class="container">
         <h3> Search for a city :</h3>
-                    <form class="form-inline  my-2 my-lg-0 col-3">
-                            <input class="form-control" type="search"  id="look" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit" id="search_bt"><i class="fa fa-search"></i></button>
+                    <form class="form-inline  my-2 my-lg-0 col-7 col-md-3 col-sm-3">
+                            <input class="form-control" type="search"  id="look" placeholder="Search for a City" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" id="search_bt"><i class="fa fa-search"></i></button>
                           </form>
                                                    
                           <div class="m-3"></div>
                           <div class="row">
 
-                          <div class="list-group col-3" id="history">
+                          <div class="list-group col-5 col-md-3 col-sm-4" id="history">
                             
                                   </div>  
                           <div class="jumbotron pt-1 bg-transparent col-9 border border-dark" id="results">
@@ -40,53 +40,83 @@
                                            </div>
                                            <h2 class="week">5 day forecast</h2>
                                            <div class="row">
-                                                <div class="col-6 col-md-4 col-sm-6 pl-1 pr-1">
-                                                  <div id="box_1">
-                                                    <div class="card-body border border-dark" id="day_1">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
+                                                  <div class="text-center" id="box_1">
+                                                    <div class="border border-dark" id="day_1">
                                                       <h7 class="card-title font-weight-bold" id="date_1"></h7>
                                                       <p id="icon_1"></p>
-                                                      <p class="card-text mb-1" id="temp_1"></p>
-                                                      <p class="card-text" id="humidity_1"></p>
+                                                      <div class="row">
+                                                      <div class="col">
+                                                      <p id="temp_1"></p>
+                                                      </div>
+                                                      <div class="col">
+                                                      <p id="humidity_1"></p>
+                                                    </div>
+                                                    </div>
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="col-6 col-md-4 col-sm-6 pl-1 pr-1">
-                                                  <div  id="box_2">
-                                                      <div class="card-body border border-dark" id="day_2">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
+                                                  <div class="text-center"  id="box_2">
+                                                      <div class="border border-dark" id="day_2">
                                                           <h7 class="card-title font-weight-bold" id="date_2"></h7>
                                                           <p id="icon_2"></p>
-                                                          <p class="card-text mb-1" id="temp_2"></p>
-                                                          <p class="card-text" id="humidity_2"></p>
+                                                          <div class="row">
+                                                          <div class="col">
+                                                          <p id="temp_2"></p>
+                                                        </div>
+                                                        <div class="col">
+                                                          <p id="humidity_2"></p>
+                                                        </div>
+                                                        </div>
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="col-6 col-md-4 col-sm-6 pl-1 pr-1">
-                                                        <div id="box_3">
-                                                            <div class="card-body border border-dark"id="day_3">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
+                                                        <div class="text-center"  id="box_3">
+                                                            <div class="border border-dark"id="day_3">
                                                                 <h7 class="card-title font-weight-bold" id="date_3"></h7>
                                                                 <p id="icon_3"></p>
-                                                                <p class="card-text mb-1" id="temp_3"></p>
-                                                                <p class="card-text" id="humidity_3"></p>
+                                                                <div class="row">
+                                                                <div class="col">
+                                                                <p id="temp_3"></p>
+                                                              </div>
+                                                              <div class="col">
+                                                                <p id="humidity_3"></p>
+                                                              </div>
+                                                              </div>
                                                           </div>
                                                         </div>
                                                       </div>
-                                                      <div class="col-6 col-md-4 col-sm-6 pl-1 pr-1">
-                                                            <div id="box_4">
-                                                                <div class="card-body border border-dark"id="day_4">
+                                                      <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
+                                                            <div class="text-center" id="box_4">
+                                                                <div class="border border-dark"id="day_4">
                                                                     <h7 class="card-title font-weight-bold" id="date_4"></h7>
                                                                     <p id="icon_4"></p>
-                                                                    <p class="card-text mb-1" id="temp_4"></p>
-                                                                    <p class="card-text" id="humidity_4"></p>
+                                                                    <div class="row">
+                                                                    <div class="col">
+                                                                    <p id="temp_4"></p>
+                                                                  </div>
+                                                                  <div class="col">
+                                                                    <p id="humidity_4"></p>
+                                                                  </div>
+                                                                  </div>
                                                               </div>
                                                             </div>
                                                           </div>
-                                                          <div class="col-6 col-md-4 col-sm-6 pl-1 pr-1">
-                                                                <div id="box_5">
-                                                                    <div class="card-body border border-dark" id="day_5">
+                                                          <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
+                                                                <div class="text-center" id="box_5">
+                                                                    <div class="border border-dark" id="day_5">
                                                                     <h7 class="card-title font-weight-bold" id="date_5"></h7>
                                                                     <p id="icon_5"></p>
-                                                                    <p class="card-text mb-1" id="temp_5"></p>
-                                                                    <p class="card-text" id="humidity_5"></p>
+                                                                    <div class="row">
+                                                                    <div class="col">
+                                                                    <p id="temp_5"></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    <p id="humidity_5"></p>
+                                                                  </div>
+                                                                  </div>
                                                               </div>
                                                                 </div>
                                                               </div>
