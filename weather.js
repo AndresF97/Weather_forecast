@@ -1,5 +1,3 @@
-//URL webs
-
 //pointers for search
 var key="f315bcdf1cb4baa6f540676f13336a8c"
 var history = $("#history");
@@ -31,14 +29,14 @@ $(document).ready(function () {
             var bt = $("<button>");
             bt.addClass("list-group-item");
             bt.addClass("list-group-item-action");
+            bt.addClass("item")
             bt.attr("data-city",city[i]);
             bt.text(city[i]);
             $("#history").append(bt)
 
         }
-        $(".list-group-item-action").on("click",function(){
-            var location = ($(".list-group-item-action").attr("data-city"))
-            console.log(location)
+        $("button.list-group-item.list-group-item-action").on("click",function(){
+            var location = ($(this).attr("data-city"))
             refresh(location);
         })
     }
@@ -109,12 +107,17 @@ function cityName(input){
         url: jUrl,
         method: "GET"
     }).then(function (info) {
-        console.log(info)
         $("#results").attr("style", "display:content");
         tempature.empty()
         var img = $("<img>")
         img.attr("src","https://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
-        var date = new Date(info.dt*1000);
+        //going to get todays date
+        var newDate = new Date();
+        var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"]
+        var month = newDate.getMonth()
+        var dayOfMonth = newDate.getDate()
+        var year = newDate.getFullYear()
+        var date = months[month] + "/" + dayOfMonth + "/" + year;
         var name = info.name;
         var temp = info.main.temp;
         var faren = ((temp - 273.15) * 1.80 +32);
@@ -124,12 +127,12 @@ function cityName(input){
         var speed = info.wind.speed;
         var Uv = index(lat,lon);
         city.text(name);
-        today.text("Today's date ="+date);
+        today.text("Today's date = "+date);
         city.append(img);
         humidity.text("Humidity = " + hum+ "%");
-        speedW.text("Wind Speed=" + speed+" MPH");
-        uv.text("UV Index=" + Uv)
-        tempature.prepend("Tempature ="+parseInt(faren) + "&deg;" + "F");
+        speedW.text("Wind Speed = " + speed+" MPH");
+        uv.text("UV Index = " + Uv)
+        tempature.prepend("Tempature = "+parseInt(faren) + "&deg;" + "F");
   
     
 
@@ -192,7 +195,13 @@ function refresh(location){
         tempature.empty()
         var img = $("<img>");
         img.attr("src","https://openweathermap.org/img/wn/"+info.weather[0].icon+"@2x.png");
-        var date = new Date(info.dt*1000);
+        //going to get todays date
+        var newDate = new Date();
+        var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"]
+        var month = newDate.getMonth()
+        var dayOfMonth = newDate.getDate()
+        var year = newDate.getFullYear()
+        var date = months[month] + "/" + dayOfMonth + "/" + year;
         var name = info.name;
         var temp = info.main.temp;
         var faren = ((temp - 273.15) * 1.80 +32);
@@ -205,9 +214,9 @@ function refresh(location){
         city.text(name);
         city.append(img)
         humidity.text("Humidity = " + hum+ "%");
-        speedW.text("Wind Speed=" + speed+" MPH");
-        uv.text("UV Index=" + Uv)
-        tempature.prepend("Tempature ="+parseInt(faren) + "&deg;" + "F");
+        speedW.text("Wind Speed = " + speed+" MPH");
+        uv.text("UV Index = " + Uv)
+        tempature.prepend("Tempature = "+parseInt(faren) + "&deg;" + "F");
   
     
 
