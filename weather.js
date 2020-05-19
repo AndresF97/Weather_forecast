@@ -141,6 +141,19 @@ function cityName(input){
 
 }).catch(function(err){
     console.log("this ciry doesnt exist")
+    var errMessage = $("<div>")
+    errMessage.html(
+        ` 
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Sorry the city you're searching for doesn't exits! please try again.</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      `
+    )
+    $("#cityErr").empty()
+    $("#cityErr").append(errMessage)
 })
 }
 
@@ -227,7 +240,19 @@ function refresh(location){
 
 })
 .catch(function(err){
-    console.log("history error")
+    var errMessage = $("<div>")
+    errMessage.html(
+        ` 
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Sorry the city you're searching for doesn't exits! please try again.</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      `
+    )
+    $("#cityErr").empty()
+    $("#cityErr").append(errMessage)
 })
 var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&units=imperial"+"&appid="+key;
 $.ajax({
