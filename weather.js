@@ -1,3 +1,6 @@
+//Must set up a away verify when the user types in a city that doesnt exist
+
+
 //pointers for search
 var key="f315bcdf1cb4baa6f540676f13336a8c"
 var history = $("#history");
@@ -40,8 +43,6 @@ $(document).ready(function () {
             refresh(location);
         })
     }
-        
-
 });
 
 
@@ -107,6 +108,7 @@ function cityName(input){
         url: jUrl,
         method: "GET"
     }).then(function (info) {
+        console.log(info)
         $("#results").attr("style", "display:content");
         tempature.empty()
         var img = $("<img>")
@@ -137,6 +139,8 @@ function cityName(input){
     
 
 
+}).catch(function(err){
+    console.log("this ciry doesnt exist")
 })
 }
 
@@ -221,6 +225,9 @@ function refresh(location){
     
 
 
+})
+.catch(function(err){
+    console.log("history error")
 })
 var jUrl= "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&units=imperial"+"&appid="+key;
 $.ajax({
