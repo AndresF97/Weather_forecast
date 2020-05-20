@@ -1,10 +1,11 @@
 h5{
     font-size: 20px;
 };
-button.list-group-item.list-group-item-action{
-    font-size: 1000px
+.rounded{
+    border: 6px solid black
     !important;
-}
+};
+
 @media screen and (max-width: 360px) {
     #history{
         margin-bottom: 20px;
