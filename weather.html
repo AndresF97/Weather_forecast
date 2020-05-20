@@ -12,21 +12,23 @@
     
 </head>
 <body>
-        <h1 class="text-center mw-100 p-3 mb-0 bg-info text-white">Weather forecast</h1>
+        <h1 class="text-center p-3 mb-0 bg-info text-white">Weather forecast</h1>
         <div id="cityErr">
 
       </div>
     <div class="container">
         <h3> Search for a city :</h3>
-                    <form class="form-inline  my-2 my-lg-0 col-7 col-md-3 col-sm-3">
-                            <input class="form-control" type="search"  id="look" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit" id="search_bt"><i class="fa fa-search"></i></button>
+                    <form class="form-inline">
+                      <div class="row">
+                            <input class="form-control col-10 col-md-8 col-sm-3" type="search"  id="look" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success col-2 col-md-2 col-sm-2" type="submit" id="search_bt"><i class="fa fa-search"></i></button>
+                          </div>
                           </form>
                                                    
                           <div class="m-3"></div>
                           <div class="row">
 
-                          <div class="list-group col-5 col-md-3 col-sm-4 text-center" id="history">
+                          <div class="list-group col-12 col-md-3 col-sm-4 text-center" id="history">
                             
                                   </div>  
                           <div class="jumbotron pt-1 bg-transparent col-12 col-md-9 col-sm-10 border border-dark" id="results">
@@ -43,7 +45,7 @@
                                            </div>
                                            <h2 class="week">5 day forecast</h2>
                                            <div class="row">
-                                                <div class="col-6 col-md-2 col-sm-6 pl-1 pr-1">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
                                                   <div class="text-center" id="box_1">
                                                     <div class="border border-dark" id="day_1">
                                                       <h7 class="card-title font-weight-bold" id="date_1"></h7>
@@ -59,7 +61,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="col-6 col-md-2 col-sm-6 pl-1 pr-1">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
                                                   <div class="text-center"  id="box_2">
                                                       <div class="border border-dark" id="day_2">
                                                           <h7 class="card-title font-weight-bold" id="date_2"></h7>
@@ -75,7 +77,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="col-6 col-md-2 col-sm-6 pl-1 pr-1">
+                                                <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
                                                         <div class="text-center"  id="box_3">
                                                             <div class="border border-dark"id="day_3">
                                                                 <h7 class="card-title font-weight-bold" id="date_3"></h7>
@@ -91,7 +93,7 @@
                                                           </div>
                                                         </div>
                                                       </div>
-                                                      <div class="col-6 col-md-2 col-sm-6 pl-1 pr-1">
+                                                      <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
                                                             <div class="text-center" id="box_4">
                                                                 <div class="border border-dark"id="day_4">
                                                                     <h7 class="card-title font-weight-bold" id="date_4"></h7>
@@ -107,7 +109,7 @@
                                                               </div>
                                                             </div>
                                                           </div>
-                                                          <div class="col-6 col-md-2 col-sm-6 pl-1 pr-1">
+                                                          <div class="col-6 col-md-3 col-sm-6 pl-1 pr-1">
                                                                 <div class="text-center" id="box_5">
                                                                     <div class="border border-dark" id="day_5">
                                                                     <h7 class="card-title font-weight-bold" id="date_5"></h7>

@@ -6,5 +6,35 @@ button.list-group-item.list-group-item-action{
     !important;
 }
 @media screen and (max-width: 360px) {
-
+    #history{
+        margin-bottom: 20px;
+        margin-left: 9.5px;
+    }
+    .form-inline{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  @media screen and (max-width: 411px) {
+    #history{
+        margin-bottom: 20px;
+        margin-left: 9.5px;
+    }
+    .form-inline{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  @media screen and (max-width: 414px) {
+    #history{
+        margin-bottom: 20px;
+        margin-left: 9.5px;
+    }
+    .form-inline{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
   }
