@@ -1,7 +1,7 @@
 # Weather_forecast
 
 ## Site Picture
-![Weathe Website](https://media.licdn.com/dms/image/C4D22AQE6bJkfKRdBvg/feedshare-shrink_800/0?e=1579132800&v=beta&t=IVH7QADnVG6r14xga9GglyQAKmJEru-T1uRPQ8fVvzg)
+![Weather Website](assets/img/Weatherforecast.gif)
 
 ## Summary 
 - You can use this website to look up the weather of any city,state and country; after the user searches for the place they want to look up it will be saved in their local storage. That way they have a way to see their search history. Once they refresh the page and search for a new city the history will then be erased automatically. 
