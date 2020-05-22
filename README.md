@@ -4,7 +4,7 @@
 ![Weathe Website](https://media.licdn.com/dms/image/C4D22AQE6bJkfKRdBvg/feedshare-shrink_800/0?e=1579132800&v=beta&t=IVH7QADnVG6r14xga9GglyQAKmJEru-T1uRPQ8fVvzg)
 
 ## Summary 
-This website can be used by anybody not just office workers!!!. The website is set to change color once that hour of the day has passed,are in the current hour or open hours in your schedule.
+- You can use this website to look up the weather of any city,state and country; after the user searches for the place they want to look up it will be saved in their local storage. That way they have a way to see their search history. Once they refresh the page and search for a new city the history will then be erased automatically. 
 
 ## Technologies Used
 - HTML - used to create elements on the DOM
@@ -50,8 +50,8 @@ This website can be used by anybody not just office workers!!!. The website is s
 </body>
 </html>
 ```
-## My views
+## Code Explained: 
 - Since the website is focused on the weather most people usually look at weather websites to see if they need protection from the elements. I though that it might be a good idea to create a background for the UV index since there's alot people that worry about there skin and exposure to UV-rays. depending on the UV value the box changes color.
 ## Author Links
-[LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
-[GitHub](https://github.com/AndresF97)
+- [LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
+- [GitHub](https://github.com/AndresF97)
