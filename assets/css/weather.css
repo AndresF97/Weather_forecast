@@ -1,10 +1,7 @@
 h5{
     font-size: 20px;
 };
-.rounded{
-    border: 6px solid black
-    !important;
-};
+
 
 @media screen and (max-width: 360px) {
     #history{
