@@ -26,7 +26,7 @@ $(document).ready(function () {
     Today()
      if(localStorage.getItem("data-city") !== null){
          $("#history").attr("style","display:content");
-        var city = localStorage.getItem("data-city");
+        var city = localStorage.getItem("data-city") || [];
         city = JSON.parse(city);
         console.log(city)
        
@@ -77,7 +77,7 @@ function index(lat,lon){
 }
 
 
-var input = [];
+var input = JSON.parse(localStorage.getItem("data-city")) || [];
 
 //current conditions function 
 function Today() {
@@ -96,7 +96,7 @@ function Today() {
             bt.attr("data-city",input[i]);
             bt.text(input[i]);
             $("#history").append(bt)
-            // cityName(input[i])
+           
         }
 
        
