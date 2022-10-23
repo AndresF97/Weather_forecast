@@ -132,13 +132,13 @@ function refresh(location){
         var hum = info.main.humidity;;
         var speed = info.wind.speed;
         var Uv = index(lat,lon);
-        today.text("Today's Date= "+date);
+        today.text("Today's Date: "+date);
         city.text(name);
         city.append(img)
-        humidity.text("Humidity = " + hum+ "%");
-        speedW.text("Wind Speed = " + speed+" MPH");
-        uv.text("UV Index = " + Uv)
-        tempature.prepend("Tempature = "+parseInt(faren) + "&deg;" + "F");
+        humidity.text("Humidity :" + hum+ "%");
+        speedW.text("Wind Speed : " + speed+" MPH");
+        uv.text("UV Index : " + Uv)
+        tempature.prepend("Tempature : "+parseInt(faren) + "&deg;" + "F");
   
     
 
